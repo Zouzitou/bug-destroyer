@@ -1,0 +1,6 @@
+{
+  "name": "bug-destroyer",
+  "description": "Find and fix bugs across codebases at scale. Activate when the user mentions bugs, destroying bugs, exterminating bugs, auditing code, security reviews, privacy checks, or mad max sweeps.",
+  "version": "1.0.0",
+  "type": "skills-dir"
+}

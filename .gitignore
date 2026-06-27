@@ -1,0 +1,32 @@
+# Secrets / local config
+.env
+.env.*
+.env.local
+*.pem
+*.key
+*.crt
+*.p12
+credentials*
+secret*
+config.local.*
+.aws/
+.netrc
+*.log
+
+# Raw scan artifacts (may contain unredacted findings)
+bugs_raw_agent_*.jsonl
+
+# Generated sweep reports (point-in-time snapshots; keep local, not versioned)
+bugs.md
+BUG-PREVENTION.md
+
+# Keep the skill descriptor versioned; exception must precede the directory ignore
+!.claude-plugin/plugin.json
+
+# Claude-specific directories
+.claude/
+.claude-plugin/
+
+# Build outputs
+builds/
+dist/
