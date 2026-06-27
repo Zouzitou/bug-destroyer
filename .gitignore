@@ -1,0 +1,6 @@
+# Claude-specific directories
+.claude
+.claude-plugin
+
+# Build outputs
+builds
