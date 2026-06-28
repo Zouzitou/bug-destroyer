@@ -156,7 +156,7 @@
 |-----|:------:|---------------|
 | BUG-001 🛡️🔒 | ✅ | Added mandatory report redaction guidance to `SKILL.md`; committed `1bceccb`. |
 | BUG-002 🛡️🔒 | ✅ | Added secret/config ignore patterns and generated-report ignores to `.gitignore`; committed `ae59039`. |
-| BUG-003 | ⬜ | — |
+| BUG-003 | ✅ | Added secret-scanning commands to setup phase in `SKILL.md`. |
 | BUG-004 🛡️🔒 | ⬜ | — |
 | BUG-005 | ⬜ | — |
 | BUG-006 | ⬜ | — |

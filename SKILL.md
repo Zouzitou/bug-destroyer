@@ -187,6 +187,18 @@ grep -ri "GDPR\|HIPAA\|PCI\|SOC.2\|ISO.27001\|CCPA" --include="*.md" --include="
 ls privacy.md privacy-policy.md DATA-PROCESSING.md 2>/dev/null && echo "HAS_PRIVACY_DOCS" || true
 ```
 
+### Secret Scan
+
+Run at least one secret-scanning tool during setup. Mark findings as 🤖 **Tool-Detected**.
+
+```bash
+gitleaks detect --source . --verbose 2>/dev/null || true
+truffleHog filesystem . --json 2>/dev/null || true
+git-secrets --scan 2>/dev/null || true
+```
+
+If no secret scanner is installed, note the gap and proceed; still review git history manually for high-entropy strings and obvious secrets.
+
 ### Run Their Tools First
 
 ```bash
