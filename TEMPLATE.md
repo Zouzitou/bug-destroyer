@@ -261,10 +261,10 @@ Place each bug in the grid at its (Likelihood, Impact) coordinate.
 
 *Mad Max only. Every Inquisitor must return CLEAN.*
 
-| Round | Alpha | Beta | Gamma | Delta | Omega | |
-|:-----:|-------|------|-------|-------|-------|---|
-| 1 | ❌ {{N}} | ❌ {{N}} | ✅ | ❌ {{N}} | ✅ | ❌ |
-| 2 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Round | Alpha | Beta | Gamma | Delta | Omega |
+|:-----:|-------|------|-------|-------|-------|
+| 1 | ❌ {{N}} | ❌ {{N}} | ✅ | ❌ {{N}} | ✅ |
+| 2 | ✅ | ✅ | ✅ | ✅ | ✅ |
 
 > **All 5 Inquisitors CLEAN.** Zero bugs, zero privacy violations, zero compliance gaps. `{{DATE}}` · `{{FINAL_COMMIT}}`
 
