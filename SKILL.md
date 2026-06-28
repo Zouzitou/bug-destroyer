@@ -116,7 +116,7 @@ You may recommend an intensity in the question text, but the user must choose.
 
 For **Quick**, no `bugs.md` is required; summarize findings in chat and ask before fixing.
 
-For **Medium**, **Deep**, and **Mad Max**, after scanning, **always** generate `bugs.md`, present it via `present_files`, and wait for approval.
+For **Medium**, **Deep**, and **Mad Max**, after scanning, **always** generate `bugs.md`, summarize the plan in chat, cite the `bugs.md` path, and wait for explicit approval before fixing.
 
 Ask one question:
 
@@ -274,7 +274,7 @@ Before saying done:
 - [ ] Safety check passed
 - [ ] Branch created (Deep/Mad Max)
 - [ ] Toolchain run
-- [ ] `bugs.md` generated and presented via `present_files` (Medium/Deep/Mad Max)
+- [ ] `bugs.md` generated and plan summarized in chat with the file path cited (Medium/Deep/Mad Max)
 - [ ] User explicitly approved (`approve`, `yes`, `fix it`, `go`, `just fix it`)
 - [ ] **No fix applied before approval**
 - [ ] All bugs marked `✅ Fixed` or `❌ Won't Fix` (with reason)

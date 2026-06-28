@@ -159,7 +159,7 @@
 | BUG-003 | ✅ | Added secret-scanning commands to setup phase in `SKILL.md`. |
 | BUG-004 🛡️🔒 | ✅ | Added raw-artifact cleanup step to `MadMax.md`; added `bugs_raw_agent_*.jsonl` to `.gitignore`. |
 | BUG-005 | ✅ | Replaced all `AskUserQuestion` references in `SKILL.md` with plain-text user prompts. |
-| BUG-006 | ⬜ | — |
+| BUG-006 | ✅ | Replaced all `present_files` references in `SKILL.md` with chat summary + file-path citation. |
 | BUG-007 | ⬜ | — |
 | BUG-008 | ⬜ | — |
 | BUG-009 | ⬜ | — |
