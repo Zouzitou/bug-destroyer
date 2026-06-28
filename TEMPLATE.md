@@ -190,17 +190,19 @@ Place each bug in the grid at its (Likelihood, Impact) coordinate.
 |-----|------|----------|------|:----:|
 | BUG-{{ID}} | {{DATA_TYPE}} | {{EXPOSURE}} | {{HARM}} | **{{SCORE}}** 🛡️🔒 |
 
-*(Only include bugs with Privacy Score ≥ 15.)*
+*(Only include bugs with Privacy Score ≥ 30.)*
 
 ---
 
 ## 📋 Compliance
 
-| Framework | Controls | Status |
-|-----------|----------|:------:|
-| **SOC 2** | {{CONTROLS}} | ✅ |
-| **GDPR** | {{ARTICLES}} | ✅ |
-| **ISO 27001** | {{CONTROLS}} | ✅ |
+| Framework | Controls | Evidence | Notes / Remediation | Status |
+|-----------|----------|----------|---------------------|:------:|
+| **SOC 2** | {{CONTROLS}} | {{EVIDENCE}} | {{NOTES}} | ✅ |
+| **GDPR** | {{ARTICLES}} | {{EVIDENCE}} | {{NOTES}} | ✅ |
+| **ISO 27001** | {{CONTROLS}} | {{EVIDENCE}} | {{NOTES}} | ✅ |
+| **HIPAA** | {{CONTROLS}} | {{EVIDENCE}} | {{NOTES}} | ✅ |
+| **PCI-DSS** | {{CONTROLS}} | {{EVIDENCE}} | {{NOTES}} | ✅ |
 
 *(Only include frameworks that have mapped findings.)*
 
@@ -281,6 +283,8 @@ Place each bug in the grid at its (Likelihood, Impact) coordinate.
 ---
 
 ## ↩️ Rollback
+
+> ⚠️ **Safety warning:** `git reset --hard` permanently discards uncommitted work. Stash or back up changes first, and verify the pre-sweep commit hash before running. Replace `<commit>` with the actual fix-commit SHA when using `git revert`.
 
 git reset --hard {{PRE_SWEEP_COMMIT}}   # Everything
 git revert <commit>                       # Single fix
