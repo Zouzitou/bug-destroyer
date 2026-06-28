@@ -399,8 +399,8 @@ For each bug:
 | Mode | Branch | Commits | Commit Format |
 |------|--------|---------|---------------|
 | Quick | Current branch | One commit | `fix: quick bug sweep — {N} bugs fixed` |
+| Medium | Current branch | One commit per severity tier | `fix: {severity} severity bugs — {N} fixed` |
 | Deep | Current branch | One per category | `fix: {category} — {N} bugs fixed` |
-| Scorched | `bug-destroyer/scorched-{date}` | One per severity tier | `fix: {severity} severity bugs — {N} fixed` |
 | Mad Max | `bug-destroyer/mad-max-{date}` | One per bug | `fix: [BUG-{ID}] {description}` |
 
 **Rollback:** `git reset --hard <pre-sweep-commit>` (the pre-sweep commit hash is recorded in `bugs.md`).
@@ -418,15 +418,15 @@ One verification pass:
 2. Run linter + typechecker — any new errors?
 3. Run test suite — any regressions?
 
-### Scorched
-Three verification passes:
-1. Re-read each fixed file — confirm correctness
-2. Run full test suite — fix any regressions
-3. Run linter + typechecker + formatter + dependency audit — everything clean?
-4. Generate `BUG-PREVENTION.md` and `COMPLIANCE-REPORT.md`
-
 ### Mad Max
-The Inquisition — 5 adversarial verification agents:
+
+Before the Inquisition, run the same practical checks as Deep:
+1. Re-read each fixed file — confirm correctness in context.
+2. Run the full test suite — fix any regressions.
+3. Run linter + typechecker + formatter + dependency audit — everything clean.
+4. Confirm `BUG-PREVENTION.md` and `COMPLIANCE-REPORT.md` are generated and accurate.
+
+Then run **The Inquisition** — 5 adversarial verification agents:
 
 Each Inquisitor checks:
 - Every claimed fix — does it actually work? Are there missed edge cases?
@@ -445,8 +445,8 @@ If ANY Inquisitor finds ANYTHING → fix it → re-run ALL 5 Inquisitors from sc
 | File | When | Content |
 |------|------|---------|
 | `bugs.md` | Always | Main report. Use the exact structure defined in the **bugs.md Template** section at the bottom of this file. |
-| `BUG-PREVENTION.md` | Scorched + Mad Max | Specific, copy-paste ESLint rules, tsconfig changes, CI pipeline additions, pre-commit hooks, architectural recommendations. Each prevention references the BUG-IDs it would catch. |
-| `COMPLIANCE-REPORT.md` | Scorched + Mad Max | All findings mapped to SOC 2, ISO 27001, GDPR, HIPAA, and PCI-DSS controls. Per-framework summary tables. Status of each control. Auditor-ready. |
+| `BUG-PREVENTION.md` | Deep + Mad Max | Specific, copy-paste ESLint rules, tsconfig changes, CI pipeline additions, pre-commit hooks, architectural recommendations. Each prevention references the BUG-IDs it would catch. |
+| `COMPLIANCE-REPORT.md` | Deep + Mad Max | All findings mapped to SOC 2, ISO 27001, GDPR, HIPAA, and PCI-DSS controls. Per-framework summary tables. Status of each control. Auditor-ready. |
 | `AUDIT-TRAIL.md` | Mad Max | Complete timestamped log of every action taken. Pre-flight checks, agent launches, findings, fixes, commits, verification rounds, final sign-off. |
 
 ---
@@ -456,7 +456,7 @@ If ANY Inquisitor finds ANYTHING → fix it → re-run ALL 5 Inquisitors from sc
 **Presenting findings (Quick/Deep):**
 > *"I scanned 143 files. Found 23 bugs — good news, no critical security issues. Bad news, 3 high-severity and a systemic error handling problem. Here's the plan..."*
 
-**Presenting findings (Scorched/Mad Max):**
+**Presenting findings (Deep/Mad Max):**
 > *"I scanned every file in `src/` — 247 files total. Found 58 bugs: 8 critical, 12 high, 23 medium, 10 low, 5 cosmetic. 12 of those are privacy-critical. I also found 4 systemic issues and generated 15 permanent preventions. Here's the full report..."*
 
 **During fixes:**
@@ -468,7 +468,7 @@ If ANY Inquisitor finds ANYTHING → fix it → re-run ALL 5 Inquisitors from sc
 **All done (Quick/Deep):**
 > *"All 23 fixed, tests green, linter clean. Your codebase is in better shape."*
 
-**All done (Scorched/Mad Max):**
+**All done (Deep/Mad Max):**
 > *"All 58 bugs fixed, tests passing, linter clean, dependency audit clean. I left you three files: the bug report, a prevention guide with 15 rules that'll catch these automatically, and a compliance report mapped to SOC 2, GDPR, and ISO 27001. Health score went from 62 to 94. Privacy score from 71 to 98. Nice work."*
 
 ---
