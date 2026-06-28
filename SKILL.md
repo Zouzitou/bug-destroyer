@@ -85,7 +85,7 @@ If the user doesn't give a clear target, **ask**. Examples of unclear:
 - *"bug destroyer"*
 - *"scan this"* (without pointing at a file/folder)
 
-Use `AskUserQuestion` with 2–4 concrete options:
+Ask the user directly, presenting 2–4 concrete options and waiting for their reply:
 - `src/` (or the obvious source folder)
 - Current directory / whole codebase
 - A specific file they mentioned earlier
@@ -97,7 +97,7 @@ Only proceed when the target is unambiguous.
 
 If the user does **not** explicitly name an intensity, **you MUST ask**. No smart default. No auto-pick.
 
-Use `AskUserQuestion` with exactly these four options:
+Ask the user directly, presenting exactly these four options and waiting for their reply:
 
 | Option | What it means | Time |
 |--------|---------------|------|
@@ -226,7 +226,7 @@ Add a **"Redaction verified"** item to the Done Checklist for every sweep.
 
 ## Intensity Recommendation (Not a Default)
 
-You may **recommend** an intensity inside the `AskUserQuestion`, but the user must pick.
+You may **recommend** an intensity when asking the user, but the user must pick.
 
 | Situation | Suggest |
 |-----------|---------|
