@@ -118,7 +118,7 @@ Place each bug in the grid at its (Likelihood, Impact) coordinate.
 
 ### 🔴 BUG-001 · {{TITLE}}
 
-`{{FILE}}:{{LINE}}` · {{CATEGORY}} · {{BADGES}} · ⏱ {{EFFORT}}m · `{{GIT_BLAME}}`
+`{{FILE}}:{{LINE}}` · {{CATEGORY}} · {{BADGES}} · ⏱ {{EFFORT}}m · `{{COMMIT_SHORT}}`
 
 | | Score |
 |---|---|

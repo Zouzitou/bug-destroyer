@@ -164,7 +164,7 @@
 | BUG-008 | ⬜ | — |
 | BUG-009 | ⬜ | — |
 | BUG-010 | ⬜ | — |
-| BUG-011 🛡️🔒 | ⬜ | — |
+| BUG-011 🛡️🔒 | ✅ | Replaced `{{GIT_BLAME}}` with `{{COMMIT_SHORT}}` in `TEMPLATE.md` to avoid embedding committer PII. |
 | BUG-012 | ⬜ | — |
 | BUG-013 | ⬜ | — |
 | BUG-014 | ⬜ | — |
