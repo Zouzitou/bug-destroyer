@@ -1,0 +1,27 @@
+name: bug-destroyer-quality
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run skill regression tests
+        run: bash tests/skill.test.sh
+
+      - name: Check for forbidden tool names
+        run: |
+          if grep -RniE "AskUserQuestion|present_files" SKILL.md profiles/*.md TEMPLATE.md; then
+            echo "Forbidden tool names found"
+            exit 1
+          fi
+
+      - name: Verify release build script exists
+        run: test -x scripts/build-release.sh
