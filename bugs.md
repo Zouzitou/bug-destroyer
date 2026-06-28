@@ -168,7 +168,7 @@
 | BUG-012 | ✅ | Fixed compliance grep to use extended regex with escaped/optional separators. |
 | BUG-013 | ✅ | Corrected `PII in error logs` scoring example to 🟠🛡️🔒 and clarified final badge rule in `TAXONOMY.md`. |
 | BUG-014 | ✅ | Removed undefined `Scorched` intensity from `TAXONOMY.md`; mapped outputs to `Deep + Mad Max`; added Medium to git strategy. |
-| BUG-015 | ⬜ | — |
+| BUG-015 | ✅ | Renamed Deep verification heading from "One verification pass" to "Verification steps" to match actual count. |
 | BUG-016 | ✅ | Removed `|| true` masking; commands now capture exit codes and stderr. |
 | BUG-017 | ⬜ | — |
 | BUG-018 | ⬜ | — |

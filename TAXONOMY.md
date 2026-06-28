@@ -413,7 +413,7 @@ For each bug:
 No verification. Fix and done. The changes are small and obvious.
 
 ### Deep
-One verification pass:
+Verification steps:
 1. Re-read each fixed file — does the fix look correct in context?
 2. Run linter + typechecker — any new errors?
 3. Run test suite — any regressions?

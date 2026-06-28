@@ -70,7 +70,8 @@
 | 2026-06-28 | BUG-009/010 | `builds/` · `scripts/` · `SKILL.md` | Deleted stale zip; added reproducible build script + checksum + release docs. | `36201ad` | ✅ Fixed |
 | 2026-06-28 | BUG-012 | `SKILL.md` | Fixed compliance grep to use extended regex. | `a492eb3` | ✅ Fixed |
 | 2026-06-28 | BUG-013 | `TAXONOMY.md` | Fixed scoring example and clarified privacy badge rule. | `d81a679` | ✅ Fixed |
-| 2026-06-28 | BUG-014 | `TAXONOMY.md` | Removed undefined Scorched intensity; aligned outputs and verification. | pending | ✅ Fixed |
+| 2026-06-28 | BUG-014 | `TAXONOMY.md` | Removed undefined Scorched intensity; aligned outputs and verification. | `f6920db` | ✅ Fixed |
+| 2026-06-28 | BUG-015 | `TAXONOMY.md` | Fixed Deep verification step count wording. | pending | ✅ Fixed |
 
 ---
 
