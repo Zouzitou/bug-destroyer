@@ -20,6 +20,8 @@ List every source file, excluding:
 2. Launch 10 scan agents in parallel. Each agent reads `TAXONOMY.md` and scans its slice.
 3. Each agent writes raw findings to `bugs_raw_agent_{n}.jsonl`.
 
+**Privacy rule for scan agents:** redact PII, secrets, tokens, emails, and user IDs in raw findings. Quote only the minimum code snippet necessary and never include real user data.
+
 ## Phase 3: Synthesize
 
 Deduplicate and normalize all raw findings:

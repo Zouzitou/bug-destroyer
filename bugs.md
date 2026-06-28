@@ -173,7 +173,7 @@
 | BUG-017 | ✅ | Quick profile now requires `QUICK-FINDINGS.md` (or `bugs.md`) with rollback commit hash. |
 | BUG-018 | ✅ | Added accessibility, i18n, testing, and privacy data-flow checks to Quick profile. |
 | BUG-019 | ✅ | Added test-baseline step to `profiles/Medium.md` before any fix. |
-| BUG-020 | ⬜ | — |
+| BUG-020 | ✅ | Added scan-agent privacy rule to `profiles/MadMax.md` requiring PII redaction in raw findings. |
 | BUG-021 | ✅ | Added privacy note that `npm audit` sends dependency metadata to npm registry. |
 | BUG-022 | ✅ | Added `timeout` wrapper to all setup commands. |
 | BUG-023 | ✅ | Added package-manager detection from lockfiles and `npx --no-install` guidance. |
