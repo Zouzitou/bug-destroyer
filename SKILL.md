@@ -4,10 +4,11 @@ description: Find and fix bugs across codebases at scale. Activate when the user
 when_to_use: |
   Trigger phrases: "destroy all bugs", "bug destroyer", "exterminate bugs",
   "fix my bugs", "find bugs", "what's wrong with my code", "audit my code",
-  "security review", "privacy check", "go mad max", "scorched earth",
-  "scan my codebase", "clean up this code".
-  The skill runs four intensities (Quick, Deep, Scorched, Mad Max), generates a
-  bugs.md plan, and requires explicit user approval before applying any fix.
+  "security review", "privacy check", "go mad max", "scan my codebase",
+  "clean up this code".
+  The skill runs four intensities (Quick, Medium, Deep, Mad Max), generates a
+  bugs.md plan when applicable, and requires explicit user approval before
+  applying any fix.
 ---
 
 # Bug Destroyer
@@ -43,10 +44,32 @@ Activate at scale:
 | "destroy bugs" / "bug destroyer" / "exterminate bugs" | Full experience |
 | "fix my bugs" / "find bugs" / "what's wrong with my code" | Full experience |
 | "audit my code" / "security review" / "privacy check" | Full experience |
-| "go mad max on src/" / "scorched earth the API" | They know what they want |
+| "go mad max on src/" / "scan everything" | They know what they want |
 | "is my code good?" / "should I be worried" | Be reassuring |
 
 **Don't activate** for a single known bug. *"The login button doesn't work"* is a normal fix.
+
+---
+
+## The Four Intensities — Brief Overview
+
+This skill has four intensities. Read the full protocol for the one the user picks. Do not load all four.
+
+| | What | Time | Output |
+|---|------|------|--------|
+| 🟢 **Quick** | Hotspots + toolchain, obvious bugs only | ~2–5m | Chat summary |
+| 🟡 **Medium** | Broader scan, `bugs.md` plan, fix + verify | ~5–15m | `bugs.md` |
+| 🟠 **Deep** | Near-exhaustive scan, prevention + compliance reports | ~15–45m | `bugs.md` + `BUG-PREVENTION.md` + `COMPLIANCE-REPORT.md` |
+| 🔴💀 **Mad Max** | Every line. 10 scan agents. 5 Inquisitors. Audit trail. | ~10m–2h+ | `bugs.md` + `BUG-PREVENTION.md` + `COMPLIANCE-REPORT.md` + `AUDIT-TRAIL.md` |
+
+For full details, read:
+
+- `profiles/Quick.md`
+- `profiles/Medium.md`
+- `profiles/Deep.md`
+- `profiles/MadMax.md`
+
+Before scanning any bug, read `TAXONOMY.md`. Before writing `bugs.md`, read `TEMPLATE.md`.
 
 ---
 
@@ -72,18 +95,18 @@ Only proceed when the target is unambiguous.
 
 ### Gate 2: How hard?
 
-If the user does **not** explicitly name an intensity, **you MUST ask**. No smart default. No auto-pick. No invented modes like *"Deep+"*.
+If the user does **not** explicitly name an intensity, **you MUST ask**. No smart default. No auto-pick.
 
 Use `AskUserQuestion` with exactly these four options:
 
 | Option | What it means | Time |
 |--------|---------------|------|
 | 🟢 **Quick** | Hotspots + toolchain, obvious bugs only | ~2–5m |
-| 🟡 **Deep** | Broader scan, `bugs.md` plan, fix + verify | ~5–15m |
-| 🟠 **Scorched** | Near-exhaustive, prevention + compliance reports | ~15–45m |
+| 🟡 **Medium** | Broader scan, `bugs.md` plan, fix + verify | ~5–15m |
+| 🟠 **Deep** | Near-exhaustive, prevention + compliance reports | ~15–45m |
 | 🔴💀 **Mad Max** | Every line, 10 agents, 5 Inquisitors, audit trail | ~10–120m+ |
 
-**Explicit intensity (do not ask):** "Quick scan", "go deep", "scorched earth", "mad max".
+**Explicit intensity (do not ask):** "Quick scan", "go medium", "go deep", "go mad max".
 
 **Implicit intensity (you MUST ask):** "destroy all bugs", "fix my codebase", "bug destroyer", "scan everything".
 
@@ -91,7 +114,9 @@ You may recommend an intensity in the question text, but the user must choose.
 
 ### Gate 3: Approve the plan?
 
-After scanning, **always** generate `bugs.md`, present it via `present_files`, and wait for approval.
+For **Quick**, no `bugs.md` is required; summarize findings in chat and ask before fixing.
+
+For **Medium**, **Deep**, and **Mad Max**, after scanning, **always** generate `bugs.md`, present it via `present_files`, and wait for approval.
 
 Ask one question:
 
@@ -114,34 +139,7 @@ The only exceptions to the approval gate:
 - Changing a public API
 - Not sure if something's actually a bug
 - Tests fail and the cause isn't obvious
-- On `main` with High or Mad Max intensity
-
----
-
-## The Four Intensities
-
-| | When | What | Time |
-|---|------|------|------|
-| 🟢 **Quick** | Pre-PR, user seems busy | Hotspots + toolchain, fix obvious | ~2-5m |
-| 🟡 **Deep** | Pre-release, user wants thorough | Broader scan, plan, fix + verify | ~5-15m |
-| 🟠 **Scorched** | Post-milestone, user wants certainty | Near-exhaustive, triple verify, prevention guide | ~15-45m |
-| 🔴💀 **Mad Max** | "I need CERTAINTY," privacy-critical | Every line. 10 agents. Adversarial verify. Compliance. Audit. | ~10-120m |
-
-### Recommendation (Not a Default)
-
-You may **recommend** an intensity inside the `AskUserQuestion`, but the user must pick.
-
-| Situation | Suggest |
-|-----------|---------|
-| Project < 50 files | Deep |
-| Project 50-200 files | Quick or Deep |
-| Project > 200 files | Quick first |
-| User said "audit" or "security" | Scorched |
-| User said "mad max" or "every line" | Mad Max |
-| Privacy-critical code detected | Scorched or Mad Max |
-| Compliance docs found (SOC 2, GDPR, etc.) | Scorched |
-
-**Never decide for them.**
+- On `main` with Deep or Mad Max intensity
 
 ---
 
@@ -202,117 +200,21 @@ Mark all tool-detected findings with 🤖 **Tool-Detected** in `bugs.md`.
 
 ---
 
-## How to Scan
+## Intensity Recommendation (Not a Default)
 
-### Quick
-- Entry points, API routes, top 5 imports, config files, TODO/FIXME comments.
-- Run grep patterns for secrets, injection, console logs, TODOs.
-- **Deliver:** chat summary.
+You may **recommend** an intensity inside the `AskUserQuestion`, but the user must pick.
 
-### Deep
-- Everything in Quick + utilities, hooks, middleware, auth, DB, state, errors.
-- Run full toolchain.
-- **Deliver:** `bugs.md` with code and fixes.
+| Situation | Suggest |
+|-----------|---------|
+| Project < 50 files | Medium |
+| Project 50-200 files | Quick or Medium |
+| Project > 200 files | Quick first |
+| User said "audit" or "security" | Deep |
+| User said "mad max" or "every line" | Mad Max |
+| Privacy-critical code detected | Deep or Mad Max |
+| Compliance docs found (SOC 2, GDPR, etc.) | Deep |
 
-### Scorched
-- Everything in Deep + tests, types, styles, all config, CI/CD, edge cases, docs.
-- Strict toolchain, dependency audit, systemic pattern detection.
-- **Deliver:** `bugs.md` + `BUG-PREVENTION.md` + `COMPLIANCE-REPORT.md`.
-
-### Mad Max
-Every line. Every file. Zero tolerance.
-
-1. **Map** all source files (exclude `node_modules`, `.git`, `dist`, `build`, `.next`, `__pycache__`, `target`, `vendor`, binaries).
-2. **Split into 10 equal slices** and launch **10 scan agents** in parallel.
-3. **Synthesize** all `bugs_raw_agent_*.jsonl` files: dedupe, re-score, privacy-flag, compliance-map, dependency-map.
-4. **Generate** `bugs.md`, `BUG-PREVENTION.md`, `COMPLIANCE-REPORT.md`, `AUDIT-TRAIL.md`.
-5. **Fix everything** in order: Critical security + privacy-critical → systemic → high → medium → low → cosmetic.
-6. **Launch 5 Inquisitor agents** to prove bugs still exist. If any find anything, fix it and re-run all 5 from scratch.
-7. **End only when** all 5 Inquisitors return CLEAN in the same round.
-
-For full scan patterns, scoring matrices, and per-category checks, read `TAXONOMY.md` in this skill directory.
-
----
-
-## Scoring
-
-Every bug gets two independent scores. Final severity = the higher of the two.
-
-**Security Score = Impact × Likelihood × Exploitability** (1–5 each, max 125)
-
-**Privacy Score = Data Sensitivity × Exposure Likelihood × User Impact** (1–5 each, max 125)
-
-| Final | Action |
-|-------|--------|
-| ≥ 60 | 🔴 Critical — fix immediately |
-| ≥ 30 | 🟠 High — fix today |
-| ≥ 15 | 🟡 Medium — fix this week |
-| ≥ 5  | 🟢 Low — fix when convenient |
-| < 5  | ⚪ Cosmetic — backlog |
-
-🛡️🔒 **Privacy-Critical** = Privacy Score ≥ 30, regardless of security score.
-
----
-
-## How to Fix
-
-### Fix Protocol
-
-1. **Read the file fresh**
-2. **Apply the fix** — surgical, match existing style
-3. **Mark progress** in `bugs.md`: `⬜ Pending` → `🟦 In Progress` → `✅ Fixed`
-4. **Commit** — `fix: [BUG-{ID}] {short description}`
-5. **Log** every action to `AUDIT-TRAIL.md` (Mad Max)
-
-### Fix Order (Non-Negotiable)
-
-1. 🔴 Critical security + 🛡️🔒 Privacy-Critical
-2. 🧩 Systemic issues
-3. 🟠 High
-4. 🟡 Medium — sort by effort ascending
-5. 🟢 Low
-6. ⚪ Cosmetic
-
-### Safety Rules
-
-- One fix at a time. Sequential.
-- Test after each severity tier.
-- Rollback on regression.
-- No refactoring. If a bug needs >50 lines of refactor, mark `❌ Won't Fix — Requires Refactor`.
-- User gates before touching auth, payments, encryption, PII, or public APIs.
-
-### Git Strategy
-
-| Mode | Branch | Commits |
-|------|--------|---------|
-| Quick | Current branch | One commit |
-| Deep | Current branch | One per category |
-| Scorched | `bug-destroyer/scorched-{date}` | One per severity tier |
-| Mad Max | `bug-destroyer/mad-max-{date}` | One per bug |
-
-Rollback: `git reset --hard <pre-sweep-commit>` (record in `bugs.md`).
-
----
-
-## How to Verify
-
-- **Quick:** no verification.
-- **Deep:** re-read fixed files, run linter + typechecker, run tests.
-- **Scorched:** three passes — re-read, full tests, strict toolchain + dependency audit.
-- **Mad Max:** 5 Inquisitor agents. Loop until all 5 return CLEAN in the same round.
-
----
-
-## Output Files
-
-| File | When | Content |
-|------|------|---------|
-| `bugs.md` | Always | Main report. Use `TEMPLATE.md` in this skill directory for exact structure. |
-| `BUG-PREVENTION.md` | Scorched + Mad Max | ESLint rules, tsconfig changes, CI additions, pre-commit hooks, architecture. |
-| `COMPLIANCE-REPORT.md` | Scorched + Mad Max | Findings mapped to SOC 2, GDPR, ISO 27001, HIPAA, PCI-DSS. |
-| `AUDIT-TRAIL.md` | Mad Max | Timestamped log of every action. |
-
-For the `bugs.md` template structure, read `TEMPLATE.md` in this skill directory.
+**Never decide for them.**
 
 ---
 
@@ -329,8 +231,12 @@ If the user says "resume bug destroyer":
 
 ## Supporting Files
 
-- `TAXONOMY.md` — full bug taxonomy: security, privacy, memory safety, concurrency, crypto, supply chain, performance, logic, accessibility, i18n, UI, UX, backend, quality, testing.
-- `TEMPLATE.md` — exact `bugs.md` template.
+- `profiles/Quick.md` — full Quick protocol
+- `profiles/Medium.md` — full Medium protocol
+- `profiles/Deep.md` — full Deep protocol
+- `profiles/MadMax.md` — full Mad Max protocol
+- `TAXONOMY.md` — full bug taxonomy and scoring matrices. Read before scanning.
+- `TEMPLATE.md` — exact `bugs.md` template. Read before writing the report.
 
 Read these files when needed. They stay out of context until required.
 
@@ -340,17 +246,17 @@ Read these files when needed. They stay out of context until required.
 
 Before saying done:
 
-- [ ] **Mandatory gates satisfied:** target confirmed, intensity explicitly chosen, `bugs.md` approved
+- [ ] **Mandatory gates satisfied:** target confirmed, intensity explicitly chosen, `bugs.md` approved (when applicable)
 - [ ] Safety check passed
-- [ ] Branch created (Scorched/Mad Max)
+- [ ] Branch created (Deep/Mad Max)
 - [ ] Toolchain run
-- [ ] `bugs.md` generated and presented via `present_files`
+- [ ] `bugs.md` generated and presented via `present_files` (Medium/Deep/Mad Max)
 - [ ] User explicitly approved (`approve`, `yes`, `fix it`, `go`, `just fix it`)
 - [ ] **No fix applied before approval**
 - [ ] All bugs marked `✅ Fixed` or `❌ Won't Fix` (with reason)
 - [ ] Verification complete per intensity
-- [ ] `BUG-PREVENTION.md` generated (Scorched/Mad Max)
-- [ ] `COMPLIANCE-REPORT.md` generated (Scorched/Mad Max)
+- [ ] `BUG-PREVENTION.md` generated (Deep/Mad Max)
+- [ ] `COMPLIANCE-REPORT.md` generated (Deep/Mad Max)
 - [ ] `AUDIT-TRAIL.md` complete (Mad Max)
 - [ ] All 5 Inquisitors CLEAN in same round (Mad Max)
 - [ ] Final summary with health/privacy score improvement
