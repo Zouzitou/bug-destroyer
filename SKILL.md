@@ -198,6 +198,18 @@ npm audit --json 2>&1 | head -50 || true
 
 Mark all tool-detected findings with 🤖 **Tool-Detected** in `bugs.md`.
 
+### Report Safety and Redaction
+
+Before writing `bugs.md`, `BUG-PREVENTION.md`, `COMPLIANCE-REPORT.md`, or `AUDIT-TRAIL.md`, you **must** redact sensitive values that were discovered during the scan:
+
+- Replace API keys, tokens, passwords, and secrets with `[REDACTED_SECRET]`.
+- Replace emails, names, phone numbers, and user IDs with `[REDACTED_PII]`.
+- Replace database URLs, internal hostnames, and IP addresses with `[REDACTED_URL]`.
+- Do not paste live credentials or raw PII into code blocks or diffs in reports.
+- Review generated files before committing; if they contain unredacted sensitive data, store them outside version control or add them to `.gitignore`.
+
+Add a **"Redaction verified"** item to the Done Checklist for every sweep.
+
 ---
 
 ## Intensity Recommendation (Not a Default)
@@ -258,6 +270,7 @@ Before saying done:
 - [ ] `BUG-PREVENTION.md` generated (Deep/Mad Max)
 - [ ] `COMPLIANCE-REPORT.md` generated (Deep/Mad Max)
 - [ ] `AUDIT-TRAIL.md` complete (Mad Max)
+- [ ] **Redaction verified** — no live secrets or PII in any generated report
 - [ ] All 5 Inquisitors CLEAN in same round (Mad Max)
 - [ ] Final summary with health/privacy score improvement
 - [ ] User knows rollback command
