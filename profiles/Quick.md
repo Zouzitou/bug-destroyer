@@ -31,8 +31,10 @@ Run lightweight greps or quick reads for:
 
 ## How to Deliver
 
-Summarize in chat:
+Summarize in chat, adapting to the user's language:
 
 > *"Quick scan of `{{TARGET}}` found {{N}} issues: {{C}} critical, {{H}} high, {{M}} medium. Top risk: {{TOP_ISSUE}}. Want me to go deeper or fix the obvious ones?"*
+
+(The example above is English; translate it when the user is writing in another language.)
 
 Only offer to fix. Do not apply fixes without explicit approval, even in Quick mode.

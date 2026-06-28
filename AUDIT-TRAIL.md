@@ -78,7 +78,8 @@
 | 2026-06-28 | BUG-024 | `SKILL.md` | Corrected intensity recommendation table and precedence rule. | `6092c51` | ✅ Fixed |
 | 2026-06-28 | BUG-025 | `.gitignore` | Added exception to version `plugin.json`. | `18f86a5` | ✅ Fixed |
 | 2026-06-28 | BUG-026/028 | `SKILL.md` | Removed useless cat; parse package.json with node. | `94a9f3a` | ✅ Fixed |
-| 2026-06-28 | BUG-029 | `SKILL.md` | Renamed setup heading to reflect variable duration. | pending | ✅ Fixed |
+| 2026-06-28 | BUG-029 | `SKILL.md` | Renamed setup heading to reflect variable duration. | `34d903b` | ✅ Fixed |
+| 2026-06-28 | BUG-030 | `SKILL.md` · `profiles/Quick.md` | Added i18n guidance to adapt examples to user's language. | pending | ✅ Fixed |
 
 ---
 
