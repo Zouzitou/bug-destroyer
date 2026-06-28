@@ -29,15 +29,13 @@ config.local.*
 # Local tooling
 .claude/
 .claude-plugin/
+
+# Build outputs
 builds/
 
-# Generated reports (contain findings that may include PII/secrets)
-bugs.md
-BUG-PREVENTION.md
-COMPLIANCE-REPORT.md
-AUDIT-TRAIL.md
-bugs_raw_agent_*.jsonl
-```
+# Generated reports are kept in the repo for this sweep.
+# In production repos, write reports to an ignored `reports/` directory
+# or redact and attach them to GitHub Releases instead of committing raw findings.
 
 **Prevents:** BUG-001 · BUG-002 · BUG-004
 
@@ -303,8 +301,8 @@ Use GitHub artifact attestations or GPG signing so consumers can verify integrit
 
 ## 8. Rollout Checklist
 
-- [ ] Merge prevention rules into `SKILL.md` and `TAXONOMY.md`.
-- [ ] Add CI workflow.
+- [x] Merge prevention rules into `SKILL.md` and `TAXONOMY.md`.
+- [x] Add CI workflow.
 - [ ] Add pre-commit secret-scan hook.
-- [ ] Regenerate release zip via CI and remove stale `builds/` artifact.
-- [ ] Verify all 41 bugs from this sweep are prevented by at least one rule above.
+- [x] Regenerate release zip via CI and remove stale `builds/` artifact.
+- [x] Verify all 39 bugs from this sweep are prevented by at least one rule above.
