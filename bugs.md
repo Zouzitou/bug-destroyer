@@ -162,8 +162,8 @@
 | BUG-006 | ✅ | Replaced all `present_files` references in `SKILL.md` with chat summary + file-path citation. |
 | BUG-007 | ✅ | Added trust/approval gate and package-manager detection guidance before running project tooling. |
 | BUG-008 | ✅ | Replaced truncation with full output capture to `.bug-destroyer/` files. |
-| BUG-009 | ⬜ | — |
-| BUG-010 | ⬜ | — |
+| BUG-009 | ✅ | Deleted stale `builds/bug-destroyer-v1.0.zip`; added reproducible `scripts/build-release.sh`. |
+| BUG-010 | ✅ | Build script generates deterministic zip + SHA-256 checksum; documented release process in `SKILL.md`. |
 | BUG-011 🛡️🔒 | ✅ | Replaced `{{GIT_BLAME}}` with `{{COMMIT_SHORT}}` in `TEMPLATE.md` to avoid embedding committer PII. |
 | BUG-012 | ⬜ | — |
 | BUG-013 | ⬜ | — |

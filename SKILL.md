@@ -294,3 +294,15 @@ Before saying done:
 - [ ] User knows rollback command
 
 **Hard rule:** If any gate is missing, stop and ask. Do not proceed. Do not fix.
+
+---
+
+## Release Build
+
+Do not commit release archives to the source tree. Use the reproducible build script and publish to GitHub Releases with a checksum.
+
+```bash
+./scripts/build-release.sh v1.1.0
+```
+
+This produces `dist/bug-destroyer-v1.1.0.zip` and `dist/bug-destroyer-v1.1.0.zip.sha256` with deterministic ordering and timestamps. Use GitHub artifact attestations or GPG signing for supply-chain integrity.
