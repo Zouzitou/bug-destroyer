@@ -877,7 +877,7 @@ The exact same name "Missing authentication" is used for a security pattern and 
 | Lint | none | **0 errors** |
 | Types | none | **0 errors** |
 | Vulns | 1 stale artifact | **0** |
-| Files changed | — | **TBD** |
+| Files changed | — | **15** |
 
 ---
 
