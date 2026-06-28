@@ -236,13 +236,15 @@ You may **recommend** an intensity when asking the user, but the user must pick.
 
 | Situation | Suggest |
 |-----------|---------|
-| Project < 50 files | Medium |
-| Project 50-200 files | Quick or Medium |
-| Project > 200 files | Quick first |
+| Project < 50 files | Quick |
+| Project 50-200 files | Medium |
+| Project > 200 files | Quick first, then Deep on hotspots |
 | User said "audit" or "security" | Deep |
 | User said "mad max" or "every line" | Mad Max |
 | Privacy-critical code detected | Deep or Mad Max |
 | Compliance docs found (SOC 2, GDPR, etc.) | Deep |
+
+User-stated intent ("audit", "security", "mad max") overrides file-count heuristics.
 
 **Never decide for them.**
 

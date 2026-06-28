@@ -177,7 +177,7 @@
 | BUG-021 | ✅ | Added privacy note that `npm audit` sends dependency metadata to npm registry. |
 | BUG-022 | ✅ | Added `timeout` wrapper to all setup commands. |
 | BUG-023 | ✅ | Added package-manager detection from lockfiles and `npx --no-install` guidance. |
-| BUG-024 | ⬜ | — |
+| BUG-024 | ✅ | Corrected intensity recommendation table: Quick for small projects, Medium for mid-size, and noted intent overrides size. |
 | BUG-025 | ⬜ | — |
 | BUG-026 | ⬜ | — |
 | BUG-027 | ✅ | Removed deprecated ESLint `--ext` flag from example command. |

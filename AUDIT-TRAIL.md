@@ -74,7 +74,8 @@
 | 2026-06-28 | BUG-015 | `TAXONOMY.md` | Fixed Deep verification step count wording. | `d13406d` | ✅ Fixed |
 | 2026-06-28 | BUG-017/018/031 | `profiles/Quick.md` | Required lightweight findings file, expanded categories, added branch guard. | `413e5cb` | ✅ Fixed |
 | 2026-06-28 | BUG-019 | `profiles/Medium.md` | Added test-baseline step before fixes. | `eca7a1a` | ✅ Fixed |
-| 2026-06-28 | BUG-020 | `profiles/MadMax.md` | Added scan-agent privacy redaction rule. | pending | ✅ Fixed |
+| 2026-06-28 | BUG-020 | `profiles/MadMax.md` | Added scan-agent privacy redaction rule. | `89b33e7` | ✅ Fixed |
+| 2026-06-28 | BUG-024 | `SKILL.md` | Corrected intensity recommendation table and precedence rule. | pending | ✅ Fixed |
 
 ---
 
