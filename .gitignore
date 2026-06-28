@@ -1,6 +1,21 @@
+# Secrets / local config
+.env
+.env.*
+.env.local
+*.pem
+*.key
+*.crt
+*.p12
+credentials*
+secret*
+config.local.*
+.aws/
+.netrc
+*.log
+
 # Claude-specific directories
-.claude
-.claude-plugin
+.claude/
+.claude-plugin/
 
 # Build outputs
-builds
+builds/
