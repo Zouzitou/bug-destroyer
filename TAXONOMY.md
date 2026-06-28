@@ -151,7 +151,7 @@ For C, C++, Objective-C, and unsafe blocks in Rust/Go. These are 🔴 Critical b
 | **Weak key size** | RSA < 2048 bits, ECC < 256 bits, symmetric < 128 bits | Brute-forceable with modern hardware |
 | **Hardcoded key/IV** | Static encryption key, static IV, key in source code or config | Key is public to anyone with code access |
 | **Nonce reuse** | Same nonce/IV used twice with the same key — catastrophic for AES-GCM, ChaCha20-Poly1305 | Complete loss of confidentiality and authenticity |
-| **Missing authentication** | Encryption without MAC or AEAD — ciphertext is malleable, attacker can modify encrypted data | Chosen ciphertext attacks |
+| **Missing ciphertext authentication** | Encryption without MAC or AEAD — ciphertext is malleable, attacker can modify encrypted data | Chosen ciphertext attacks |
 | **Encrypt-then-MAC error** | MAC-then-encrypt instead of encrypt-then-MAC | Padding oracle attacks (CBC mode) |
 | **Timing side-channel** | Non-constant-time comparison for secrets, secret-dependent branches, secret-dependent array indices | Key recovery via timing measurement |
 | **Weak randomness** | `Math.random()`, `rand()`, `random.random()` for security purposes — use `crypto.randomBytes()` or `secrets` module | Predictable — attacker can guess "random" values |
@@ -351,6 +351,18 @@ Every bug gets two independent scores. Final severity = the higher of the two.
 | < 5 | ⚪ Cosmetic | Polish. Backlog. |
 
 🛡️🔒 **Privacy-Critical** = Privacy Score ≥ 30, regardless of security score. A bug can be low security but high privacy. The final badge is the severity badge from `max(security_score, privacy_score)` plus the 🛡️🔒 privacy badge when Privacy Score ≥ 30.
+
+### Project Health & Privacy Index (0-100)
+
+`bugs.md` reports an overall **Health** and **Privacy** score out of 100. Aggregate the per-bug severity counts using the formulas below. Both indexes floor at 0 and cap at 100.
+
+```text
+Health = max(0, 100 - (3×Critical + 2×High + 1×Medium + 0.4×Low + 0.2×Cosmetic))
+
+Privacy = max(0, 100 - (8×Privacy-Critical + 4×High-Privacy + 2×Medium-Privacy + 1×Low + 0.5×Cosmetic))
+```
+
+Count a bug in the Privacy formula if its Privacy Score is ≥ 30 (Privacy-Critical) or if it has a non-trivial privacy component at the matching severity level. When all bugs are resolved, both indexes are **100**.
 
 ### Scoring Examples
 
