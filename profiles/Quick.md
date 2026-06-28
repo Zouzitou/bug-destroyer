@@ -2,8 +2,8 @@
 
 **When:** Pre-PR, user is busy, or they just want a fast health check.
 **Time:** ~2–5 minutes.
-**Output:** Chat summary. No `bugs.md`.
-**Commit:** One commit on the current branch if any fixes are approved.
+**Output:** Chat summary plus a lightweight `QUICK-FINDINGS.md` (or `bugs.md` if preferred) with id, file, line, title, severity, status, and the pre-sweep commit hash for rollback.
+**Commit:** One commit on the current branch if any fixes are approved. If the current branch is `main` (or the default branch), create and switch to a feature branch first.
 
 ## What to Scan
 
@@ -24,6 +24,10 @@ Run lightweight greps or quick reads for:
 - Missing auth on routes/handlers.
 - `process.env.*` used in client code.
 - PII in logs or error messages.
+- Accessibility: missing `alt`, empty buttons/links, low-contrast text, missing labels.
+- i18n: hardcoded user-facing strings, no RTL handling.
+- Testing: core business logic with no tests, flaky tests, missing null/empty/error cases.
+- Privacy data flow: validate → log → store → transmit → cache → display → delete.
 
 ## How to Deliver
 

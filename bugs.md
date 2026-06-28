@@ -170,8 +170,8 @@
 | BUG-014 | ✅ | Removed undefined `Scorched` intensity from `TAXONOMY.md`; mapped outputs to `Deep + Mad Max`; added Medium to git strategy. |
 | BUG-015 | ✅ | Renamed Deep verification heading from "One verification pass" to "Verification steps" to match actual count. |
 | BUG-016 | ✅ | Removed `|| true` masking; commands now capture exit codes and stderr. |
-| BUG-017 | ⬜ | — |
-| BUG-018 | ⬜ | — |
+| BUG-017 | ✅ | Quick profile now requires `QUICK-FINDINGS.md` (or `bugs.md`) with rollback commit hash. |
+| BUG-018 | ✅ | Added accessibility, i18n, testing, and privacy data-flow checks to Quick profile. |
 | BUG-019 | ⬜ | — |
 | BUG-020 | ⬜ | — |
 | BUG-021 | ✅ | Added privacy note that `npm audit` sends dependency metadata to npm registry. |
@@ -184,7 +184,7 @@
 | BUG-028 | ⬜ | — |
 | BUG-029 | ⬜ | — |
 | BUG-030 | ⬜ | — |
-| BUG-031 | ⬜ | — |
+| BUG-031 | ✅ | Quick profile now requires creating a feature branch when on `main`. |
 | BUG-032 | ⬜ | — |
 | BUG-033 | ⬜ | — |
 | BUG-034 | ⬜ | — |
