@@ -77,7 +77,8 @@
 | 2026-06-28 | BUG-020 | `profiles/MadMax.md` | Added scan-agent privacy redaction rule. | `89b33e7` | ✅ Fixed |
 | 2026-06-28 | BUG-024 | `SKILL.md` | Corrected intensity recommendation table and precedence rule. | `6092c51` | ✅ Fixed |
 | 2026-06-28 | BUG-025 | `.gitignore` | Added exception to version `plugin.json`. | `18f86a5` | ✅ Fixed |
-| 2026-06-28 | BUG-026/028 | `SKILL.md` | Removed useless cat; parse package.json with node. | pending | ✅ Fixed |
+| 2026-06-28 | BUG-026/028 | `SKILL.md` | Removed useless cat; parse package.json with node. | `94a9f3a` | ✅ Fixed |
+| 2026-06-28 | BUG-029 | `SKILL.md` | Renamed setup heading to reflect variable duration. | pending | ✅ Fixed |
 
 ---
 

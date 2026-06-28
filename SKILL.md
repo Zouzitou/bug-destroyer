@@ -143,7 +143,7 @@ The only exceptions to the approval gate:
 
 ---
 
-## Setup (30 Seconds, Silent)
+## Setup (Silent; Duration Varies by Project)
 
 Run these in parallel. The user shouldn't wait.
 

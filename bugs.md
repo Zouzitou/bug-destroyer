@@ -182,7 +182,7 @@
 | BUG-026 | ✅ | Removed useless `cat` in framework detection; use `node` to parse `package.json`. |
 | BUG-027 | ✅ | Removed deprecated ESLint `--ext` flag from example command. |
 | BUG-028 | ✅ | Framework detection now parses `package.json` dependency keys instead of grepping strings. |
-| BUG-029 | ⬜ | — |
+| BUG-029 | ✅ | Renamed setup heading to "Silent; Duration Varies by Project". |
 | BUG-030 | ⬜ | — |
 | BUG-031 | ✅ | Quick profile now requires creating a feature branch when on `main`. |
 | BUG-032 | ⬜ | — |
