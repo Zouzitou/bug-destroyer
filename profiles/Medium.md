@@ -36,11 +36,12 @@ Generate `bugs.md` using `TEMPLATE.md`.
 
 ## Fix Protocol
 
-1. **Read the file fresh** — it may have changed since scanning.
-2. **Apply the fix** — surgical, match existing style.
-3. **Mark progress** in `bugs.md`: `⬜ Pending` → `🟦 In Progress` → `✅ Fixed`.
-4. **Commit** — `fix: [{CATEGORY}] {short description}`.
-5. **Stop and ask** before touching auth, payments, encryption, PII, or public APIs.
+1. **Establish a test baseline** — run the test suite before touching code and record the result. If tests are already failing, warn the user and ask whether to proceed.
+2. **Read the file fresh** — it may have changed since scanning.
+3. **Apply the fix** — surgical, match existing style.
+4. **Mark progress** in `bugs.md`: `⬜ Pending` → `🟦 In Progress` → `✅ Fixed`.
+5. **Commit** — `fix: [{CATEGORY}] {short description}`.
+6. **Stop and ask** before touching auth, payments, encryption, PII, or public APIs.
 
 ## Fix Order
 

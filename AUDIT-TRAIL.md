@@ -72,7 +72,8 @@
 | 2026-06-28 | BUG-013 | `TAXONOMY.md` | Fixed scoring example and clarified privacy badge rule. | `d81a679` | ✅ Fixed |
 | 2026-06-28 | BUG-014 | `TAXONOMY.md` | Removed undefined Scorched intensity; aligned outputs and verification. | `f6920db` | ✅ Fixed |
 | 2026-06-28 | BUG-015 | `TAXONOMY.md` | Fixed Deep verification step count wording. | `d13406d` | ✅ Fixed |
-| 2026-06-28 | BUG-017/018/031 | `profiles/Quick.md` | Required lightweight findings file, expanded categories, added branch guard. | pending | ✅ Fixed |
+| 2026-06-28 | BUG-017/018/031 | `profiles/Quick.md` | Required lightweight findings file, expanded categories, added branch guard. | `413e5cb` | ✅ Fixed |
+| 2026-06-28 | BUG-019 | `profiles/Medium.md` | Added test-baseline step before fixes. | pending | ✅ Fixed |
 
 ---
 

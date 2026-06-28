@@ -172,7 +172,7 @@
 | BUG-016 | ✅ | Removed `|| true` masking; commands now capture exit codes and stderr. |
 | BUG-017 | ✅ | Quick profile now requires `QUICK-FINDINGS.md` (or `bugs.md`) with rollback commit hash. |
 | BUG-018 | ✅ | Added accessibility, i18n, testing, and privacy data-flow checks to Quick profile. |
-| BUG-019 | ⬜ | — |
+| BUG-019 | ✅ | Added test-baseline step to `profiles/Medium.md` before any fix. |
 | BUG-020 | ⬜ | — |
 | BUG-021 | ✅ | Added privacy note that `npm audit` sends dependency metadata to npm registry. |
 | BUG-022 | ✅ | Added `timeout` wrapper to all setup commands. |
