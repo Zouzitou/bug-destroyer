@@ -16,6 +16,9 @@ config.local.*
 # Raw scan artifacts (may contain unredacted findings)
 bugs_raw_agent_*.jsonl
 
+# Keep the skill descriptor versioned; exception must precede the directory ignore
+!.claude-plugin/plugin.json
+
 # Claude-specific directories
 .claude/
 .claude-plugin/

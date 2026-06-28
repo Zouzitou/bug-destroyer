@@ -178,7 +178,7 @@
 | BUG-022 | ✅ | Added `timeout` wrapper to all setup commands. |
 | BUG-023 | ✅ | Added package-manager detection from lockfiles and `npx --no-install` guidance. |
 | BUG-024 | ✅ | Corrected intensity recommendation table: Quick for small projects, Medium for mid-size, and noted intent overrides size. |
-| BUG-025 | ⬜ | — |
+| BUG-025 | ✅ | Added `!.claude-plugin/plugin.json` exception so the skill descriptor is versioned. |
 | BUG-026 | ⬜ | — |
 | BUG-027 | ✅ | Removed deprecated ESLint `--ext` flag from example command. |
 | BUG-028 | ⬜ | — |
