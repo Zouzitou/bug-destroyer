@@ -25,3 +25,4 @@ bugs_raw_agent_*.jsonl
 
 # Build outputs
 builds/
+dist/
