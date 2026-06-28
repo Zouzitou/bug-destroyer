@@ -67,7 +67,8 @@
 | 2026-06-28 | BUG-005 | `SKILL.md` | Replaced `AskUserQuestion` references with plain-text prompts. | `3917b97` | ✅ Fixed |
 | 2026-06-28 | BUG-006 | `SKILL.md` | Replaced `present_files` references with chat summary guidance. | `d6d487a` | ✅ Fixed |
 | 2026-06-28 | BUG-007/008/016/021/022/023/027 | `SKILL.md` | Hardened toolchain setup: approval gate, full output capture, timeouts, package-manager detection, no `\|\| true`, privacy note. | `cb34936` | ✅ Fixed |
-| 2026-06-28 | BUG-009/010 | `builds/` · `scripts/` · `SKILL.md` | Deleted stale zip; added reproducible build script + checksum + release docs. | pending | ✅ Fixed |
+| 2026-06-28 | BUG-009/010 | `builds/` · `scripts/` · `SKILL.md` | Deleted stale zip; added reproducible build script + checksum + release docs. | `36201ad` | ✅ Fixed |
+| 2026-06-28 | BUG-012 | `SKILL.md` | Fixed compliance grep to use extended regex. | pending | ✅ Fixed |
 
 ---
 

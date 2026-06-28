@@ -183,7 +183,7 @@ git branch --show-current 2>/dev/null
 git diff --stat 2>/dev/null | tail -1
 
 # Compliance
-grep -ri "GDPR\|HIPAA\|PCI\|SOC.2\|ISO.27001\|CCPA" --include="*.md" --include="*.txt" --include="*.yaml" --include="*.yml" . 2>/dev/null | head -5
+grep -Eri "GDPR|HIPAA|PCI|SOC[ -]?2|ISO[ -]?27001|CCPA" --include="*.md" --include="*.txt" --include="*.yaml" --include="*.yml" . 2>/dev/null | head -5
 ls privacy.md privacy-policy.md DATA-PROCESSING.md 2>/dev/null && echo "HAS_PRIVACY_DOCS" || true
 ```
 
