@@ -166,7 +166,7 @@
 | BUG-010 | ✅ | Build script generates deterministic zip + SHA-256 checksum; documented release process in `SKILL.md`. |
 | BUG-011 🛡️🔒 | ✅ | Replaced `{{GIT_BLAME}}` with `{{COMMIT_SHORT}}` in `TEMPLATE.md` to avoid embedding committer PII. |
 | BUG-012 | ✅ | Fixed compliance grep to use extended regex with escaped/optional separators. |
-| BUG-013 | ⬜ | — |
+| BUG-013 | ✅ | Corrected `PII in error logs` scoring example to 🟠🛡️🔒 and clarified final badge rule in `TAXONOMY.md`. |
 | BUG-014 | ⬜ | — |
 | BUG-015 | ⬜ | — |
 | BUG-016 | ✅ | Removed `|| true` masking; commands now capture exit codes and stderr. |

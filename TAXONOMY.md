@@ -350,7 +350,7 @@ Every bug gets two independent scores. Final severity = the higher of the two.
 | ≥ 5 | 🟢 Low | Fix when convenient. |
 | < 5 | ⚪ Cosmetic | Polish. Backlog. |
 
-🛡️🔒 **Privacy-Critical** = Privacy Score ≥ 30, regardless of security score. A bug can be low security but high privacy.
+🛡️🔒 **Privacy-Critical** = Privacy Score ≥ 30, regardless of security score. A bug can be low security but high privacy. The final badge is the severity badge from `max(security_score, privacy_score)` plus the 🛡️🔒 privacy badge when Privacy Score ≥ 30.
 
 ### Scoring Examples
 
@@ -359,7 +359,7 @@ Every bug gets two independent scores. Final severity = the higher of the two.
 | JWT secret in client bundle | 5 | 4 | 5 | **100** | 4 | 5 | 4 | **80** | 🔴🛡️🔒 |
 | SQL injection in search | 5 | 4 | 4 | **80** | 4 | 3 | 3 | **36** | 🔴🛡️🔒 |
 | Missing useMemo | 3 | 5 | 1 | **15** | 1 | 1 | 1 | **1** | 🟡 |
-| PII in error logs | 2 | 4 | 2 | **16** | 5 | 3 | 3 | **45** | 🟡🛡️🔒 |
+| PII in error logs | 2 | 4 | 2 | **16** | 5 | 3 | 3 | **45** | 🟠🛡️🔒 |
 | Unused import | 1 | 5 | 1 | **5** | 1 | 1 | 1 | **1** | 🟢 |
 
 ---
