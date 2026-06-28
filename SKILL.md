@@ -162,13 +162,10 @@ ls pom.xml build.gradle build.gradle.kts 2>/dev/null && echo "JAVA" || true
 ls composer.json 2>/dev/null && echo "PHP" || true
 ls *.c *.cpp *.h *.hpp 2>/dev/null && echo "MEMORY_UNSAFE" || true
 
-# Framework specifics
-cat package.json 2>/dev/null | grep -q '"next"' && echo "NEXTJS" || true
-cat package.json 2>/dev/null | grep -q '"react"' && echo "REACT" || true
-cat package.json 2>/dev/null | grep -q '"vue"' && echo "VUE" || true
-cat package.json 2>/dev/null | grep -q '"express"' && echo "EXPRESS" || true
-cat pyproject.toml 2>/dev/null | grep -q 'django' && echo "DJANGO" || true
-cat pyproject.toml 2>/dev/null | grep -q 'fastapi' && echo "FASTAPI" || true
+# Framework specifics (parse JSON/TOML instead of grepping strings)
+node -e "const p=require('./package.json'); const d=Object.assign({},p.dependencies,p.devDependencies); ['next','react','vue','express'].forEach(k=>d[k]&&console.log(k.toUpperCase()))" 2>/dev/null || true
+grep -q 'django' pyproject.toml 2>/dev/null && echo "DJANGO" || true
+grep -q 'fastapi' pyproject.toml 2>/dev/null && echo "FASTAPI" || true
 
 # Toolchain
 ls .eslintrc* eslint.config.* 2>/dev/null && echo "HAS_ESLINT" || true
