@@ -30,6 +30,7 @@ Deduplicate and normalize all raw findings:
 - Map to compliance controls (SOC 2, GDPR, ISO 27001, HIPAA, PCI-DSS).
 - Map dependency findings.
 - Identify systemic patterns.
+- **Secure raw artifacts:** redact any PII/secrets in raw `bugs_raw_agent_*.jsonl` files, then delete them after synthesis is complete. Add `bugs_raw_agent_*.jsonl` to `.gitignore`.
 
 ## Phase 4: Generate Reports
 

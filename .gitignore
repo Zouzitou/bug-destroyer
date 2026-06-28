@@ -13,6 +13,9 @@ config.local.*
 .netrc
 *.log
 
+# Raw scan artifacts (may contain unredacted findings)
+bugs_raw_agent_*.jsonl
+
 # Claude-specific directories
 .claude/
 .claude-plugin/

@@ -61,7 +61,8 @@
 |------------|-----|------|--------|--------|--------|
 | 2026-06-28 | BUG-002 | `.gitignore` | Added secret/config patterns and generated-report ignores. | `ae59039` | ✅ Fixed |
 | 2026-06-28 | BUG-001 | `SKILL.md` | Added mandatory PII/secrets redaction guidance and Done Checklist item. | `1bea5a1` | ✅ Fixed |
-| 2026-06-28 | BUG-003 | `SKILL.md` | Added secret-scanning commands to setup phase. | pending | ✅ Fixed |
+| 2026-06-28 | BUG-003 | `SKILL.md` | Added secret-scanning commands to setup phase. | `3cd63f4` | ✅ Fixed |
+| 2026-06-28 | BUG-004 | `MadMax.md` · `.gitignore` | Added raw artifact cleanup step and ignore pattern. | pending | ✅ Fixed |
 
 ---
 
