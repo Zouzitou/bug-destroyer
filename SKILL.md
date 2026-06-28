@@ -201,14 +201,20 @@ If no secret scanner is installed, note the gap and proceed; still review git hi
 
 ### Run Their Tools First
 
+⚠️ These commands execute tooling from the target repository. Only run them **after** the target, intensity, and plan have been explicitly approved. If the repository is untrusted, warn the user and ask before executing `npx`/`npm` commands, which may download and run code from the network.
+
+Prefer locally installed binaries and the project's own package manager. Detect the package manager from lockfiles (`package-lock.json`, `yarn.lock`, `pnpm-lock.yaml`, `bun.lockb`) and use the matching runner. Use `npx --no-install` so missing tools fail loudly instead of pulling packages silently. Wrap commands in a timeout (e.g., `timeout 120`) and capture full output; do not truncate JSON output used for detection.
+
 ```bash
-npx tsc --noEmit 2>&1 | tail -30 || true
-npx eslint . --ext .ts,.tsx --format json 2>&1 | tail -50 || true
-npm test 2>&1 | tail -30 || true
-npm audit --json 2>&1 | head -50 || true
+timeout 120 npx --no-install tsc --noEmit > .bug-destroyer/tsc.log 2>&1
+timeout 120 npx --no-install eslint . --format json > .bug-destroyer/eslint.json 2>&1
+timeout 180 npm test > .bug-destroyer/test.log 2>&1
+timeout 120 npm audit --json > .bug-destroyer/npm-audit.json 2>&1
 ```
 
 Mark all tool-detected findings with 🤖 **Tool-Detected** in `bugs.md`.
+
+> Note: `npm audit` sends dependency names and versions to the npm registry. This is external data sharing; mention it to the user if they are in a regulated environment.
 
 ### Report Safety and Redaction
 

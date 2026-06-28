@@ -160,8 +160,8 @@
 | BUG-004 🛡️🔒 | ✅ | Added raw-artifact cleanup step to `MadMax.md`; added `bugs_raw_agent_*.jsonl` to `.gitignore`. |
 | BUG-005 | ✅ | Replaced all `AskUserQuestion` references in `SKILL.md` with plain-text user prompts. |
 | BUG-006 | ✅ | Replaced all `present_files` references in `SKILL.md` with chat summary + file-path citation. |
-| BUG-007 | ⬜ | — |
-| BUG-008 | ⬜ | — |
+| BUG-007 | ✅ | Added trust/approval gate and package-manager detection guidance before running project tooling. |
+| BUG-008 | ✅ | Replaced truncation with full output capture to `.bug-destroyer/` files. |
 | BUG-009 | ⬜ | — |
 | BUG-010 | ⬜ | — |
 | BUG-011 🛡️🔒 | ✅ | Replaced `{{GIT_BLAME}}` with `{{COMMIT_SHORT}}` in `TEMPLATE.md` to avoid embedding committer PII. |
@@ -169,18 +169,18 @@
 | BUG-013 | ⬜ | — |
 | BUG-014 | ⬜ | — |
 | BUG-015 | ⬜ | — |
-| BUG-016 | ⬜ | — |
+| BUG-016 | ✅ | Removed `|| true` masking; commands now capture exit codes and stderr. |
 | BUG-017 | ⬜ | — |
 | BUG-018 | ⬜ | — |
 | BUG-019 | ⬜ | — |
 | BUG-020 | ⬜ | — |
-| BUG-021 | ⬜ | — |
-| BUG-022 | ⬜ | — |
-| BUG-023 | ⬜ | — |
+| BUG-021 | ✅ | Added privacy note that `npm audit` sends dependency metadata to npm registry. |
+| BUG-022 | ✅ | Added `timeout` wrapper to all setup commands. |
+| BUG-023 | ✅ | Added package-manager detection from lockfiles and `npx --no-install` guidance. |
 | BUG-024 | ⬜ | — |
 | BUG-025 | ⬜ | — |
 | BUG-026 | ⬜ | — |
-| BUG-027 | ⬜ | — |
+| BUG-027 | ✅ | Removed deprecated ESLint `--ext` flag from example command. |
 | BUG-028 | ⬜ | — |
 | BUG-029 | ⬜ | — |
 | BUG-030 | ⬜ | — |

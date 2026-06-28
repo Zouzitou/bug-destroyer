@@ -65,7 +65,8 @@
 | 2026-06-28 | BUG-004 | `MadMax.md` · `.gitignore` | Added raw artifact cleanup step and ignore pattern. | `5c5e826` | ✅ Fixed |
 | 2026-06-28 | BUG-011 | `TEMPLATE.md` | Replaced `{{GIT_BLAME}}` with non-PII `{{COMMIT_SHORT}}`. | `b15ccec` | ✅ Fixed |
 | 2026-06-28 | BUG-005 | `SKILL.md` | Replaced `AskUserQuestion` references with plain-text prompts. | `3917b97` | ✅ Fixed |
-| 2026-06-28 | BUG-006 | `SKILL.md` | Replaced `present_files` references with chat summary guidance. | pending | ✅ Fixed |
+| 2026-06-28 | BUG-006 | `SKILL.md` | Replaced `present_files` references with chat summary guidance. | `d6d487a` | ✅ Fixed |
+| 2026-06-28 | BUG-007/008/016/021/022/023/027 | `SKILL.md` | Hardened toolchain setup: approval gate, full output capture, timeouts, package-manager detection, no `\|\| true`, privacy note. | pending | ✅ Fixed |
 
 ---
 
